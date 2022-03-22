@@ -1,0 +1,62 @@
+' INTERNAUT USECASE se connecter / créer son compte / message / définir ses pref coockies
+@startuml INTERNAUT
+
+rectangle INTERNAUT {
+
+    skinparam actorStyle Hollow
+
+    :INTERNAUT: -right-> (Consulter le catalogue des produits)
+    (Consulter le catalogue des produits) .up.> (Consulter les produits à la une): extend
+    (Consulter le catalogue des produits) .up.> (Consulter les produits en promotion): extend
+    (Consulter le catalogue des produits) .up.> (Consulter les produits par catégorie): extend
+    (Consulter le catalogue des produits) .up.> (Rechercher un produit par mot-clef): extend
+
+    :INTERNAUT: --> (Consulter le détail d'un produit)
+
+
+}
+
+@enduml
+
+' ADMIN USECASE
+@startuml ADMIN
+
+rectangle ADMIN {
+
+    skinparam actorStyle Hollow
+
+    :ADMIN: -right-> (Gérer les produits)
+    (Gérer les produits) .up.> (Gérer les catégories): extend
+    (Gérer les catégories) ..> (Se connecter): include
+
+}
+
+@enduml
+
+' CLASS DIAGRAM
+@startuml shopdiagramclass
+
+Product "*" -right- "1" Category
+
+class Product{
+    - productId : Long
+    - designation : String
+    - description : String
+    - price : double
+    - photo : String
+    - promotion : boolean
+    - selected : boolean
+    - quantity : int
+    - tva : double
+
+    - category : Category
+}
+
+class Category {
+    - categoryId : Integer
+    - categoryName: String
+
+    - products : Collection<Product>
+}
+
+@enduml
