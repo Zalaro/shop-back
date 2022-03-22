@@ -1,4 +1,4 @@
-package com.store.dao;
+package com.store.shop.dao;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     
     public List<Product> findByDesignationContains(String keyword);
 
-    @Query("SELECT p FROM products p WHERE p.designation like :keyword")
-    public List<Product> rechercheProduit(@Param("keyword") String keyword);
+    //@Query("SELECT p FROM products p WHERE p.designation like :keyword")
+    //public List<Product> rechercheProduit(@Param("keyword") String keyword);
 
 }
