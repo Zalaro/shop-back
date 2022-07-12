@@ -37,7 +37,7 @@ public class ShopApplication implements CommandLineRunner{
         // Pour insérer des produits aléatoirement
         Random random = new Random();
 
-        // Ajouter 10 produits pour chaque catégories
+        // Ajouter 10 produits pour chaque catégorie
         categoryRepository.findAll().forEach(c -> {
             for (int i = 0; i < 10; i++) {
                 Product product = new Product();
