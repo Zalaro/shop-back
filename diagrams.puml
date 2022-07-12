@@ -39,7 +39,7 @@ rectangle ADMIN {
 Product "*" -right- "1" Category
 
 class Product{
-    - productId : Long
+    - productId : Integer
     - designation : String
     - description : String
     - price : double

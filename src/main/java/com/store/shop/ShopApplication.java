@@ -34,10 +34,13 @@ public class ShopApplication implements CommandLineRunner{
         categoryRepository.save(new Category(null, "VIDEO", null));
         categoryRepository.save(new Category(null, "GAME", null));
 
+        // Insérer un produit
+        productRepository.save(new Product(null,"Bibelot","Un beau bibelot",125,"non.pnj",false,false,15,5,null));
+
         // Pour insérer des produits aléatoirement
         Random random = new Random();
 
-        // Ajouter 10 produits pour chaque catégorie - TEST MERGE
+        // Ajouter 10 produits pour chaque catégorie 
         categoryRepository.findAll().forEach(c -> {
             for (int i = 0; i < 10; i++) {
                 Product product = new Product();

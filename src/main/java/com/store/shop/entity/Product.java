@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +24,7 @@ import lombok.ToString;
 public class Product implements Serializable{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
+    private Integer productId;
     @NotNull String designation; 
     @NotNull String description; 
     @NotNull double price;
@@ -32,9 +34,9 @@ public class Product implements Serializable{
     @NotNull private int quantity;
     @NotNull private double tva;
 
-    // MANY YO ONE RELATION
+    // MANY TO ONE RELATION
     @ManyToOne
     @JoinColumn(name="categoryId")
     private Category category;
-    
+     
 }

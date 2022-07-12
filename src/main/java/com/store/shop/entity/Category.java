@@ -18,7 +18,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-// @CrossOrigin("*")
 @Entity
 @Table(name="categories")
 @Data @NoArgsConstructor @AllArgsConstructor @ToString
